@@ -7,10 +7,12 @@ class Home extends Component {
   render() {
     return(
       <div>
+        <Link to='/about' className="home-about">About</Link>
         <h4 className="home-h4">Shall We Play A Game?</h4>
         <div className="home-begin">
           <Link to='/play' className="begin">Begin</Link>
         </div>
+
       </div>
     );
   }

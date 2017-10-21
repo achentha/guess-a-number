@@ -25,6 +25,10 @@ class Play extends Component {
   }
 
   componentWillMount(){
+    this.restartGame();
+  }
+
+  restartGame(e) {
     let random3UniqueDgts = this.gen3UniqueDgts();
     let playMessageIdx = random3UniqueDgts[0] % this.state.playMessage.length;
 
@@ -32,6 +36,9 @@ class Play extends Component {
       attempts: [],
       success: false,
       question: random3UniqueDgts,
+      "dgt1": 0,
+      "dgt2": 0,
+      "dgt3": 0,
       playMessageIdx: playMessageIdx,
     })
     console.log(`question: ${this.state.question}`);
@@ -95,6 +102,8 @@ class Play extends Component {
       });
     });
 
+    this.refs.dgt1field.value = this.refs.dgt2field.value = this.refs.dgt3field.value = "";
+
     let success = (rightCol === 3) ? true : false;
     console.log(success ? "You did it" : "Not yet");
 
@@ -109,32 +118,34 @@ class Play extends Component {
   render() {
     return(
       <div>
+        <button className="again" onClick={e => this.restartGame(e)}>Again</button>
         <Link to="/" className="play-go-home">Home</Link>
-        <p className="play-greeting">{this.state.playMessage[this.state.playMessageIdx]}</p>
-        <input className="digit" onChange={e => this.onInputChange(e,"dgt1")} type="number" name="digit1" min="0" max="9"/>
-        <input className="digit" onChange={e => this.onInputChange(e,"dgt2")} type="number" name="digit2" min="0" max="9"/>
-        <input className="digit" onChange={e => this.onInputChange(e,"dgt3")} type="number" name="digit3" min="0" max="9"/>
-        <button className="go" onClick={e => this.guessNumber(e)}>Go</button>
 
+        {this.state.success === false ?
+          (<p className="play-greeting">{this.state.playMessage[this.state.playMessageIdx]}</p>)
+          : (<p className="play-greeting"> X </p>)}
+
+        <input className="digit" onChange={e => this.onInputChange(e,"dgt1")} type="number" name="digit1" min="0" max="9" ref="dgt1field"/>
+        <input className="digit" onChange={e => this.onInputChange(e,"dgt2")} type="number" name="digit2" min="0" max="9" ref="dgt2field"/>
+        <input className="digit" onChange={e => this.onInputChange(e,"dgt3")} type="number" name="digit3" min="0" max="9" ref="dgt3field"/>
+        <button className="go" onClick={e => this.guessNumber(e)}>Go</button>
+        <span className="attempt-count">Attempt count: {this.state.attempts.length}</span>
         <button className="debug" onClick={e => this.debug(e)} className="debug">Debug</button>
         {this.state.attempts.map(attempt => {
           return (
             <div>
-              <p>{attempt.guess.join(" ")}<span> Right Column: {attempt.rightCol}</span><span> Wrong Column: {attempt.wrongCol}</span></p>
+              <p><span className="attempt">{attempt.guess.join(" ")}</span>
+                 <span className="right-col"> Right Column: {attempt.rightCol}</span>
+                 <span className="wrong-col"> Wrong Column: {attempt.wrongCol}</span>
+              </p>
             </div>
           )
         })}
 
-        <div>
-          <p>Attempt count: {this.state.attempts.length}</p>
-        </div>
 
         <div>
-          {(this.state.success === true)? (<p>You did it</p>) : ""}
+          {(this.state.success === true)? (<p className="win">You did it</p>) : ""}
         </div>
-
-
-
       </div>
     );
   }

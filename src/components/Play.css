@@ -4,6 +4,7 @@
   float: right;
   padding-right:10px;
   color: blue;
+  text-decoration: none;
 }
 
 .play-greeting {
@@ -18,11 +19,66 @@
 }
 
 .go {
-  margin-left: 30px;
+  font-family: "Eater Caps";
   font-size: 20px;
+  margin-left: 30px;
   background-color: green;
 }
 
+.attempt-count {
+  font-family: "Eater Caps";
+  font-size: 25px;
+  margin-left: 20px;
+  color: green;
+}
+
+.attempt {
+  font-family: "Eater Caps";
+  font-size: 25px;
+  margin-left: 500px;
+  color: green;
+}
+
+.right-col {
+  font-family: "Eater Caps";
+  font-size: 25px;
+  margin-left: 200px;
+  color: green;
+}
+
+.wrong-col {
+  font-family: "Eater Caps";
+  font-size: 25px;
+  margin-left: 50px;
+  color: green;
+}
+
+.win {
+  font-family: "Eater Caps";
+  font-size: 50px;
+  color: red;
+  position: fixed;
+  bottom: 20vw;
+  right: 50vw;
+  /*width: 200px;*/
+}
+
+.again {
+  font-family: "Eater Caps";
+  font-size:  30px;
+  background:none!important;
+  color:inherit;
+  border:none;
+  padding:0!important;
+  float: right;
+  /*font: inherit;*/
+  /*border is optional*/
+  /*border-bottom:1px solid #444;*/
+  cursor: pointer;
+  margin-right: 5px;
+  /*text-decoration: none;*/
+}
+
 .debug {
-  display: none;
+  /*display: none;*/
 }
