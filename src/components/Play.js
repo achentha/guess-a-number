@@ -15,10 +15,11 @@ class Play extends Component {
       "dgt3": 0,
       playMessage: [
         "My kid can do it in 5 attempts. Can you beat him?",
-        "Don't let my grandma laugh at you. She did it in 3 attempts",
-        "Only a fool takes more than 9 attempts",
-        "See if you are smarter than a 3rd grader",
+        "Make your mama proud",
+        "Can you make it in 6 attempts?",
+        "You for a president, if you win.",
         "Don't em-bar-ass yourself.",
+        "The cat says you won't get it",
       ],
       playMessageIdx: 0,
     }
@@ -123,7 +124,7 @@ class Play extends Component {
 
         {this.state.success === false ?
           (<p className="play-greeting">{this.state.playMessage[this.state.playMessageIdx]}</p>)
-          : (<p className="play-greeting"> X </p>)}
+          : (<p className="play-greeting"> . </p>)}
 
         <input className="digit" onChange={e => this.onInputChange(e,"dgt1")} type="number" name="digit1" min="0" max="9" ref="dgt1field"/>
         <input className="digit" onChange={e => this.onInputChange(e,"dgt2")} type="number" name="digit2" min="0" max="9" ref="dgt2field"/>

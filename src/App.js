@@ -18,7 +18,7 @@ class App extends Component {
           <img src={logo} className="logo"></img>
           <img src={logo} className="logo"></img>
           <img src={logo} className="logo"></img>
-          <h2>Guess The Number</h2>
+          <h1>Guess The Number</h1>
         </div>
         <Router>
           <div>
