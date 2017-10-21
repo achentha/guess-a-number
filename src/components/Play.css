@@ -1,0 +1,28 @@
+.play-go-home {
+  font-family: "Eater Caps";
+  font-size:  30px;
+  float: right;
+  padding-right:10px;
+  color: blue;
+}
+
+.play-greeting {
+  font-family: "Eater Caps";
+  font-size:  30px;
+  text-align: center;
+  color: green;
+}
+
+.digit {
+  font-size: 20px;
+}
+
+.go {
+  margin-left: 30px;
+  font-size: 20px;
+  background-color: green;
+}
+
+.debug {
+  display: none;
+}
