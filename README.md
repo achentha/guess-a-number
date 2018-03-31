@@ -6,5 +6,5 @@ This is a simple game that the player guesses a 3-digit decimal number. Each dig
 * There is no backend DB.
 
 ## History
-10/20/2017 - Initial Creation
-03/30/2018 - Update the READM.md file
+* 03/30/2018 - Update the READM.md file
+* 10/20/2017 - Initial Creation
